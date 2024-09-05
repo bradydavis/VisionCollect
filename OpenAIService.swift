@@ -19,7 +19,7 @@ class OpenAIService {
         let base64Image = imageData.base64EncodedString()
         
         let parameters: [String: Any] = [
-            "model": "gpt-4-vision-preview",
+            "model": "gpt-4o",
             "messages": [
                 [
                     "role": "user",
@@ -42,7 +42,7 @@ class OpenAIService {
         
         var request = URLRequest(url: URL(string: endpoint)!)
         request.httpMethod = "POST"
-        request.setValue("Bearer \(apiKey)", forHTTPHeaderField: "Authorization")
+        request.setValue("Bearer \(apiKey)", forHTTPHeaderField: "Authorization")  // Use the stored API key
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
         
         do {
@@ -64,14 +64,20 @@ class OpenAIService {
             }
             
             do {
-                if let json = try JSONSerialization.jsonObject(with: data) as? [String: Any],
-                   let choices = json["choices"] as? [[String: Any]],
-                   let firstChoice = choices.first,
-                   let message = firstChoice["message"] as? [String: Any],
-                   let content = message["content"] as? String {
-                    completion(.success(content))
+                if let json = try JSONSerialization.jsonObject(with: data) as? [String: Any] {
+                    print("Received JSON: \(json)") // Print the entire JSON for debugging
+                    if let choices = json["choices"] as? [[String: Any]],
+                       let firstChoice = choices.first,
+                       let message = firstChoice["message"] as? [String: Any],
+                       let content = message["content"] as? String {
+                        completion(.success(content))
+                    } else {
+                        completion(.failure(NSError(domain: "", code: 0, userInfo: [NSLocalizedDescriptionKey: "Invalid response format"])))
+                    }
                 } else {
-                    completion(.failure(NSError(domain: "", code: 0, userInfo: [NSLocalizedDescriptionKey: "Invalid response format"])))
+                    let responseString = String(data: data, encoding: .utf8) ?? "Unable to parse response"
+                    print("Unexpected response: \(responseString)")
+                    completion(.failure(NSError(domain: "", code: 0, userInfo: [NSLocalizedDescriptionKey: "Unexpected response format"])))
                 }
             } catch {
                 completion(.failure(error))

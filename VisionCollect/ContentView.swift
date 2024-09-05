@@ -14,7 +14,7 @@ struct ContentView: View {
     @Environment(\.managedObjectContext) private var viewContext
 
     init(context: NSManagedObjectContext) {
-        let openAIApiKey = "sk-proj-ZWLOyqh1DVmnzqipKxiIT3BlbkFJEGx2Z4wRp7BYqVHnMZgf" // Replace with your actual OpenAI API key
+        let openAIApiKey = "sk-proj-ZWLOyqh1DVmnzqipKxiIT3BlbkFJEGx2Z4wRp7BYqVHnMZgf" // Your actual API key
         _measurementStore = StateObject(wrappedValue: MeasurementStore(context: context, openAIApiKey: openAIApiKey))
     }
 

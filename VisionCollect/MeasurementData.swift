@@ -8,6 +8,7 @@
 import Foundation
 import CoreData
 import CoreLocation
+import UIKit
 
 struct MeasurementData: Identifiable {
     let id = UUID()
@@ -23,7 +24,7 @@ class MeasurementStore: ObservableObject {
     
     init(context: NSManagedObjectContext, openAIApiKey: String) {
         self.viewContext = context
-        self.openAIService = OpenAIService(apiKey: openAIApiKey)
+        self.openAIService = OpenAIService(apiKey: openAIApiKey)  // Pass the API key here
         fetchMeasurements()
     }
 
@@ -43,7 +44,14 @@ class MeasurementStore: ObservableObject {
         let newMeasurement = Measurement(context: viewContext)
         newMeasurement.id = UUID()
         newMeasurement.timestamp = Date()
-        newMeasurement.imageData = imageData
+        
+        // Compress the image
+        if let compressedImageData = compressImage(imageData) {
+            newMeasurement.imageData = compressedImageData
+        } else {
+            newMeasurement.imageData = imageData
+        }
+        
         newMeasurement.latitude = location?.latitude ?? 0
         newMeasurement.longitude = location?.longitude ?? 0
 
@@ -52,7 +60,7 @@ class MeasurementStore: ObservableObject {
             fetchMeasurements()
             
             // Analyze image with OpenAI
-            analyzeImage(measurement: newMeasurement, imageData: imageData)
+            analyzeImage(measurement: newMeasurement, imageData: newMeasurement.imageData ?? Data())
         } catch {
             print("Error saving measurement: \(error)")
         }
@@ -75,5 +83,23 @@ class MeasurementStore: ObservableObject {
                 }
             }
         }
+    }
+    
+    private func compressImage(_ imageData: Data) -> Data? {
+        guard let image = UIImage(data: imageData) else { return nil }
+        let maxSize: CGFloat = 1024 // Max dimension (width or height)
+        let scale = max(maxSize / image.size.width, maxSize / image.size.height)
+        
+        if scale < 1 {
+            let newSize = CGSize(width: image.size.width * scale, height: image.size.height * scale)
+            UIGraphicsBeginImageContext(newSize)
+            image.draw(in: CGRect(origin: .zero, size: newSize))
+            let newImage = UIGraphicsGetImageFromCurrentImageContext()
+            UIGraphicsEndImageContext()
+            
+            return newImage?.jpegData(compressionQuality: 0.8)
+        }
+        
+        return image.jpegData(compressionQuality: 0.8)
     }
 }
