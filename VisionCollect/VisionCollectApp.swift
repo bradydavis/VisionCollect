@@ -6,12 +6,28 @@
 //
 
 import SwiftUI
+import CoreData
 
 @main
 struct VisionCollectApp: App {
+    let persistenceController = PersistenceController.shared
+    @State private var managedObjectContext: NSManagedObjectContext?
+
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            if let context = managedObjectContext {
+                ContentView(context: context)
+                    .environment(\.managedObjectContext, context)
+            } else {
+                Text("Loading...")
+                    .onAppear(perform: setupContext)
+            }
+        }
+    }
+
+    private func setupContext() {
+        DispatchQueue.main.async {
+            self.managedObjectContext = persistenceController.container.viewContext
         }
     }
 }
