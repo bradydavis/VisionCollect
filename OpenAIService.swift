@@ -15,8 +15,10 @@ class OpenAIService {
         self.apiKey = apiKey
     }
     
-    func analyzeImage(_ imageData: Data, completion: @escaping (Result<String, Error>) -> Void) {
+    func analyzeImage(_ imageData: Data, instrumentType: String, completion: @escaping (Result<String, Error>) -> Void) {
         let base64Image = imageData.base64EncodedString()
+        
+        let prompt = getPromptForInstrument(instrumentType)
         
         let parameters: [String: Any] = [
             "model": "gpt-4o",
@@ -26,7 +28,7 @@ class OpenAIService {
                     "content": [
                         [
                             "type": "text",
-                            "text": "Can you read whats on the display in this image? What is the value of the measurements?"
+                            "text": prompt
                         ],
                         [
                             "type": "image_url",
@@ -64,25 +66,38 @@ class OpenAIService {
             }
             
             do {
-                if let json = try JSONSerialization.jsonObject(with: data) as? [String: Any] {
-                    print("Received JSON: \(json)") // Print the entire JSON for debugging
-                    if let choices = json["choices"] as? [[String: Any]],
-                       let firstChoice = choices.first,
-                       let message = firstChoice["message"] as? [String: Any],
-                       let content = message["content"] as? String {
-                        completion(.success(content))
-                    } else {
-                        completion(.failure(NSError(domain: "", code: 0, userInfo: [NSLocalizedDescriptionKey: "Invalid response format"])))
-                    }
+                if let json = try JSONSerialization.jsonObject(with: data) as? [String: Any],
+                   let choices = json["choices"] as? [[String: Any]],
+                   let firstChoice = choices.first,
+                   let message = firstChoice["message"] as? [String: Any],
+                   let content = message["content"] as? String {
+                    completion(.success(content))
                 } else {
-                    let responseString = String(data: data, encoding: .utf8) ?? "Unable to parse response"
-                    print("Unexpected response: \(responseString)")
-                    completion(.failure(NSError(domain: "", code: 0, userInfo: [NSLocalizedDescriptionKey: "Unexpected response format"])))
+                    completion(.failure(NSError(domain: "", code: 0, userInfo: [NSLocalizedDescriptionKey: "Invalid response format"])))
                 }
             } catch {
                 completion(.failure(error))
             }
         }.resume()
+    }
+
+    private func getPromptForInstrument(_ instrumentType: String) -> String {
+        let basePrompt = "Analyze this instrument display image. Identify the type of instrument and extract all visible measurements. Respond in JSON format with the following structure: {\"instrument\": \"[Instrument Name]\", \"measurements\": {\"[Parameter1]\": \"[Value1] [Unit1]\", \"[Parameter2]\": \"[Value2] [Unit2]\", ...}}. Include all visible parameters."
+        
+        switch instrumentType {
+        case "MultiRAE Pro":
+            return basePrompt + " This is a MultiRAE Pro display."
+        case "Gastec Tube":
+            return basePrompt + " This is a Gastec Tube measurement."
+        case "TSI 8530":
+            return basePrompt + " This is a TSI 8530 display."
+        case "UltraRAE":
+            return basePrompt + " This is an UltraRAE instrument display."
+        case "Horiba":
+            return basePrompt + " This is a Horiba instrument display."
+        default:
+            return basePrompt
+        }
     }
 }
 

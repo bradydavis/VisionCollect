@@ -9,46 +9,61 @@ import SwiftUI
 import CoreData
 
 struct ContentView: View {
-    @State private var showCamera = false
     @StateObject private var measurementStore: MeasurementStore
+    @StateObject private var locationManager = LocationManager()
     @Environment(\.managedObjectContext) private var viewContext
+    @State private var isLoading = true
 
     init(context: NSManagedObjectContext) {
-        let openAIApiKey = "sk-proj-ZWLOyqh1DVmnzqipKxiIT3BlbkFJEGx2Z4wRp7BYqVHnMZgf" // Your actual API key
-        _measurementStore = StateObject(wrappedValue: MeasurementStore(context: context, openAIApiKey: openAIApiKey))
+        let openAIApiKey = "sk-proj-ZWLOyqh1DVmnzqipKxiIT3BlbkFJEGx2Z4wRp7BYqVHnMZgf" // Replace with your actual OpenAI API key
+        let locationManager = LocationManager()
+        _locationManager = StateObject(wrappedValue: locationManager)
+        _measurementStore = StateObject(wrappedValue: MeasurementStore(context: context, openAIApiKey: openAIApiKey, locationManager: locationManager))
     }
 
     var body: some View {
-        NavigationView {
-            VStack(spacing: 20) {
-                Button(action: {
-                    showCamera = true
-                }) {
-                    Text("Take Measurement Photo")
-                        .frame(minWidth: 0, maxWidth: .infinity)
-                        .padding()
-                        .background(Color.green)
-                        .foregroundColor(.white)
-                        .cornerRadius(10)
-                }
-                .sheet(isPresented: $showCamera) {
-                    CameraView(context: viewContext)
-                        .environmentObject(measurementStore)
-                }
-                
-                NavigationLink(destination: MeasurementHistoryView()) {
-                    Text("View Measurement History")
-                        .frame(minWidth: 0, maxWidth: .infinity)
-                        .padding()
-                        .background(Color.green)
-                        .foregroundColor(.white)
-                        .cornerRadius(10)
+        Group {
+            if isLoading {
+                LoadingView()
+            } else {
+                TabView {
+                    DashboardView()
+                        .tabItem {
+                            Label("Dashboard", systemImage: "chart.bar")
+                        }
+                    
+                    DataCollectionView()
+                        .tabItem {
+                            Label("Collect", systemImage: "camera")
+                        }
+                    
+                    MeasurementHistoryView()
+                        .tabItem {
+                            Label("History", systemImage: "list.bullet")
+                        }
+                    
+                    MapView()
+                        .tabItem {
+                            Label("Map", systemImage: "map")
+                        }
+                    
+                    ProfileView()
+                        .tabItem {
+                            Label("Profile", systemImage: "person.crop.circle")
+                        }
                 }
             }
-            .padding()
-            .navigationTitle("Collect Data")
         }
         .environmentObject(measurementStore)
+        .environmentObject(locationManager)
+        .onAppear {
+            // Simulate loading time
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+                isLoading = false
+            }
+            measurementStore.fetchDashboardData()
+            measurementStore.fetchMeasurements()
+        }
     }
 }
 

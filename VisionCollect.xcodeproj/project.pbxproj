@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		235D39CB2C8FD49600F1EFBD /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 235D39CA2C8FD49600F1EFBD /* LoadingView.swift */; };
+		235D39CD2C8FE11000F1EFBD /* AnalyzingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 235D39CC2C8FE11000F1EFBD /* AnalyzingView.swift */; };
 		C71A23232C89F51600BBE447 /* VisionCollectApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C71A23222C89F51600BBE447 /* VisionCollectApp.swift */; };
 		C71A23252C89F51600BBE447 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C71A23242C89F51600BBE447 /* ContentView.swift */; };
 		C71A23272C89F52C00BBE447 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C71A23262C89F52C00BBE447 /* Assets.xcassets */; };
@@ -14,9 +16,15 @@
 		C71A23312C89FA7100BBE447 /* CameraView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C71A23302C89FA7100BBE447 /* CameraView.swift */; };
 		C71A23332C89FAA400BBE447 /* MeasurementData.swift in Sources */ = {isa = PBXBuildFile; fileRef = C71A23322C89FAA400BBE447 /* MeasurementData.swift */; };
 		C71A23372C89FD0C00BBE447 /* MeasurementHistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C71A23362C89FD0C00BBE447 /* MeasurementHistoryView.swift */; };
-		C71A233A2C8A052F00BBE447 /* MeasurementModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C71A23382C8A052F00BBE447 /* MeasurementModel.xcdatamodeld */; };
 		C71A233C2C8A05FE00BBE447 /* PersistenceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C71A233B2C8A05FE00BBE447 /* PersistenceController.swift */; };
 		C71A23432C8A0C0D00BBE447 /* OpenAIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C71A23422C8A0C0D00BBE447 /* OpenAIService.swift */; };
+		C734D5762CC9979A0032A553 /* MeasurementModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C734D5732CC9979A0032A553 /* MeasurementModel.xcdatamodeld */; };
+		C7C05E3D2C8A3C2E007148D6 /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7C05E3C2C8A3C2D007148D6 /* MapView.swift */; };
+		C7C05E3F2C8A3C53007148D6 /* DataCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7C05E3E2C8A3C53007148D6 /* DataCollectionView.swift */; };
+		C7C05E412C8A3C85007148D6 /* DashboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7C05E402C8A3C85007148D6 /* DashboardView.swift */; };
+		C7C05E432C8A3E91007148D6 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7C05E422C8A3E91007148D6 /* ProfileView.swift */; };
+		C7C05E452C8A3F61007148D6 /* MeasurementDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7C05E442C8A3F61007148D6 /* MeasurementDetailView.swift */; };
+		C7C05E472C8A4B27007148D6 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7C05E462C8A4B27007148D6 /* LocationManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -33,6 +41,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		235D39CA2C8FD49600F1EFBD /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
+		235D39CC2C8FE11000F1EFBD /* AnalyzingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyzingView.swift; sourceTree = "<group>"; };
 		C71A231F2C89F51600BBE447 /* VisionCollect.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VisionCollect.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C71A23222C89F51600BBE447 /* VisionCollectApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisionCollectApp.swift; sourceTree = "<group>"; };
 		C71A23242C89F51600BBE447 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -41,9 +51,16 @@
 		C71A23302C89FA7100BBE447 /* CameraView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraView.swift; sourceTree = "<group>"; };
 		C71A23322C89FAA400BBE447 /* MeasurementData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeasurementData.swift; sourceTree = "<group>"; };
 		C71A23362C89FD0C00BBE447 /* MeasurementHistoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeasurementHistoryView.swift; sourceTree = "<group>"; };
-		C71A23392C8A052F00BBE447 /* MeasurementModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = MeasurementModel.xcdatamodel; sourceTree = "<group>"; };
 		C71A233B2C8A05FE00BBE447 /* PersistenceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceController.swift; sourceTree = "<group>"; };
 		C71A23422C8A0C0D00BBE447 /* OpenAIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenAIService.swift; sourceTree = "<group>"; };
+		C734D5742CC9979A0032A553 /* MeasurementModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = MeasurementModel.xcdatamodel; sourceTree = "<group>"; };
+		C734D5752CC9979A0032A553 /* MeasurementModel v2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "MeasurementModel v2.xcdatamodel"; sourceTree = "<group>"; };
+		C7C05E3C2C8A3C2D007148D6 /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
+		C7C05E3E2C8A3C53007148D6 /* DataCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataCollectionView.swift; sourceTree = "<group>"; };
+		C7C05E402C8A3C85007148D6 /* DashboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardView.swift; sourceTree = "<group>"; };
+		C7C05E422C8A3E91007148D6 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
+		C7C05E442C8A3F61007148D6 /* MeasurementDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeasurementDetailView.swift; sourceTree = "<group>"; };
+		C7C05E462C8A4B27007148D6 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,9 +77,16 @@
 		C71A23162C89F51600BBE447 = {
 			isa = PBXGroup;
 			children = (
+				C7C05E462C8A4B27007148D6 /* LocationManager.swift */,
+				C7C05E422C8A3E91007148D6 /* ProfileView.swift */,
+				C7C05E442C8A3F61007148D6 /* MeasurementDetailView.swift */,
+				C7C05E3C2C8A3C2D007148D6 /* MapView.swift */,
+				C7C05E3E2C8A3C53007148D6 /* DataCollectionView.swift */,
+				C7C05E402C8A3C85007148D6 /* DashboardView.swift */,
 				C71A23422C8A0C0D00BBE447 /* OpenAIService.swift */,
 				C71A23212C89F51600BBE447 /* VisionCollect */,
 				C71A23202C89F51600BBE447 /* Products */,
+				C734D5732CC9979A0032A553 /* MeasurementModel.xcdatamodeld */,
 			);
 			sourceTree = "<group>";
 		};
@@ -79,12 +103,13 @@
 			children = (
 				C71A23222C89F51600BBE447 /* VisionCollectApp.swift */,
 				C71A23242C89F51600BBE447 /* ContentView.swift */,
-				C71A23382C8A052F00BBE447 /* MeasurementModel.xcdatamodeld */,
 				C71A233B2C8A05FE00BBE447 /* PersistenceController.swift */,
 				C71A23362C89FD0C00BBE447 /* MeasurementHistoryView.swift */,
 				C71A23302C89FA7100BBE447 /* CameraView.swift */,
 				C71A23322C89FAA400BBE447 /* MeasurementData.swift */,
 				C71A23262C89F52C00BBE447 /* Assets.xcassets */,
+				235D39CC2C8FE11000F1EFBD /* AnalyzingView.swift */,
+				235D39CA2C8FD49600F1EFBD /* LoadingView.swift */,
 				C71A23282C89F52C00BBE447 /* Preview Content */,
 			);
 			path = VisionCollect;
@@ -173,13 +198,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C7C05E3F2C8A3C53007148D6 /* DataCollectionView.swift in Sources */,
 				C71A23332C89FAA400BBE447 /* MeasurementData.swift in Sources */,
+				C7C05E452C8A3F61007148D6 /* MeasurementDetailView.swift in Sources */,
 				C71A233C2C8A05FE00BBE447 /* PersistenceController.swift in Sources */,
 				C71A23312C89FA7100BBE447 /* CameraView.swift in Sources */,
+				235D39CD2C8FE11000F1EFBD /* AnalyzingView.swift in Sources */,
+				C7C05E432C8A3E91007148D6 /* ProfileView.swift in Sources */,
 				C71A23432C8A0C0D00BBE447 /* OpenAIService.swift in Sources */,
+				235D39CB2C8FD49600F1EFBD /* LoadingView.swift in Sources */,
 				C71A23252C89F51600BBE447 /* ContentView.swift in Sources */,
+				C7C05E412C8A3C85007148D6 /* DashboardView.swift in Sources */,
 				C71A23372C89FD0C00BBE447 /* MeasurementHistoryView.swift in Sources */,
-				C71A233A2C8A052F00BBE447 /* MeasurementModel.xcdatamodeld in Sources */,
+				C734D5762CC9979A0032A553 /* MeasurementModel.xcdatamodeld in Sources */,
+				C7C05E472C8A4B27007148D6 /* LocationManager.swift in Sources */,
+				C7C05E3D2C8A3C2E007148D6 /* MapView.swift in Sources */,
 				C71A23232C89F51600BBE447 /* VisionCollectApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -239,7 +272,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MACH_O_TYPE = staticlib;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
@@ -298,7 +331,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MACH_O_TYPE = staticlib;
 				MTL_ENABLE_DEBUG_INFO = NO;
@@ -314,14 +347,18 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				"ASSETCATALOG_COMPILER_APPICON_NAME[sdk=iphoneos*]" = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"VisionCollect/Preview Content\"";
-				DEVELOPMENT_TEAM = 8WW2682HAH;
+				DEVELOPMENT_TEAM = C7HW8S38EK;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = "Vision Collect";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.productivity";
 				INFOPLIST_KEY_NSCameraUsageDescription = "This app needs access to the camera to take photos of instrument displays.";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "This app needs access to your location to record where measurements were taken.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -336,7 +373,7 @@
 				MACH_O_TYPE = "";
 				MARKETING_VERSION = 1.0;
 				ONLY_ACTIVE_ARCH = NO;
-				PRODUCT_BUNDLE_IDENTIFIER = cteh.VisionCollect;
+				PRODUCT_BUNDLE_IDENTIFIER = C7HW8S38EK.com.cteh.visionCollect;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -349,14 +386,18 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				"ASSETCATALOG_COMPILER_APPICON_NAME[sdk=iphoneos*]" = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"VisionCollect/Preview Content\"";
-				DEVELOPMENT_TEAM = 8WW2682HAH;
+				DEVELOPMENT_TEAM = C7HW8S38EK;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = "Vision Collect";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.productivity";
 				INFOPLIST_KEY_NSCameraUsageDescription = "This app needs access to the camera to take photos of instrument displays.";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "This app needs access to your location to record where measurements were taken.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -370,7 +411,7 @@
 				);
 				MACH_O_TYPE = "";
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = cteh.VisionCollect;
+				PRODUCT_BUNDLE_IDENTIFIER = C7HW8S38EK.com.cteh.visionCollect;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -404,14 +445,15 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		C71A23382C8A052F00BBE447 /* MeasurementModel.xcdatamodeld */ = {
+		C734D5732CC9979A0032A553 /* MeasurementModel.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
-				C71A23392C8A052F00BBE447 /* MeasurementModel.xcdatamodel */,
+				C734D5742CC9979A0032A553 /* MeasurementModel.xcdatamodel */,
+				C734D5752CC9979A0032A553 /* MeasurementModel v2.xcdatamodel */,
 			);
-			currentVersion = C71A23392C8A052F00BBE447 /* MeasurementModel.xcdatamodel */;
+			currentVersion = C734D5752CC9979A0032A553 /* MeasurementModel v2.xcdatamodel */;
 			name = MeasurementModel.xcdatamodeld;
-			path = /Users/bradydavis/Documents/GitHub/VisionCollect/VisionCollect/MeasurementModel.xcdatamodeld;
+			path = VisionCollect/MeasurementModel.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};
