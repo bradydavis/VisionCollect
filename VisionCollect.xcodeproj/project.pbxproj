@@ -43,6 +43,7 @@
 /* Begin PBXFileReference section */
 		235D39CA2C8FD49600F1EFBD /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
 		235D39CC2C8FE11000F1EFBD /* AnalyzingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyzingView.swift; sourceTree = "<group>"; };
+		BD0E26EF2C8FE12300F1EFBD /* Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
 		C71A231F2C89F51600BBE447 /* VisionCollect.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VisionCollect.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C71A23222C89F51600BBE447 /* VisionCollectApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisionCollectApp.swift; sourceTree = "<group>"; };
 		C71A23242C89F51600BBE447 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -107,6 +108,7 @@
 				C71A23362C89FD0C00BBE447 /* MeasurementHistoryView.swift */,
 				C71A23302C89FA7100BBE447 /* CameraView.swift */,
 				C71A23322C89FAA400BBE447 /* MeasurementData.swift */,
+				BD0E26EF2C8FE12300F1EFBD /* Config.swift */,
 				C71A23262C89F52C00BBE447 /* Assets.xcassets */,
 				235D39CC2C8FE11000F1EFBD /* AnalyzingView.swift */,
 				235D39CA2C8FD49600F1EFBD /* LoadingView.swift */,
@@ -207,6 +209,7 @@
 				C7C05E432C8A3E91007148D6 /* ProfileView.swift in Sources */,
 				C71A23432C8A0C0D00BBE447 /* OpenAIService.swift in Sources */,
 				235D39CB2C8FD49600F1EFBD /* LoadingView.swift in Sources */,
+				BD0E26F02C8FE12300F1EFBD /* Config.swift in Sources */,
 				C71A23252C89F51600BBE447 /* ContentView.swift in Sources */,
 				C7C05E412C8A3C85007148D6 /* DashboardView.swift in Sources */,
 				C71A23372C89FD0C00BBE447 /* MeasurementHistoryView.swift in Sources */,

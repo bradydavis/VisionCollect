@@ -17,7 +17,9 @@ struct ContentView: View {
     init(context: NSManagedObjectContext) {
         let locationManager = LocationManager()
         _locationManager = StateObject(wrappedValue: locationManager)
-        _measurementStore = StateObject(wrappedValue: MeasurementStore(context: context, openAIApiKey: Config.openAIApiKey, locationManager: locationManager))
+        // Use hardcoded API key temporarily for testing
+        let apiKey = "test-api-key-value"
+        _measurementStore = StateObject(wrappedValue: MeasurementStore(context: context, openAIApiKey: apiKey, locationManager: locationManager))
     }
 
     var body: some View {
