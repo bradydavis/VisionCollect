@@ -15,10 +15,9 @@ struct ContentView: View {
     @State private var isLoading = true
 
     init(context: NSManagedObjectContext) {
-        let openAIApiKey = "sk-proj-ZWLOyqh1DVmnzqipKxiIT3BlbkFJEGx2Z4wRp7BYqVHnMZgf" // Replace with your actual OpenAI API key
         let locationManager = LocationManager()
         _locationManager = StateObject(wrappedValue: locationManager)
-        _measurementStore = StateObject(wrappedValue: MeasurementStore(context: context, openAIApiKey: openAIApiKey, locationManager: locationManager))
+        _measurementStore = StateObject(wrappedValue: MeasurementStore(context: context, openAIApiKey: Config.openAIApiKey, locationManager: locationManager))
     }
 
     var body: some View {
